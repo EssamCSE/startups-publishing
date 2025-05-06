@@ -1,9 +1,8 @@
-
 import "./globals.css";
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
 import localFont from "next/font/local";
 import { Provider } from "./Provider";
+
 
 const workSans = localFont({
   src: [
@@ -53,7 +52,7 @@ const workSans = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-work-sans"
+  variable: "--font-work-sans",
 });
 
 export const metadata: Metadata = {

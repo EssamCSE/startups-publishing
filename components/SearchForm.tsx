@@ -3,7 +3,7 @@ import Form from "next/form";
 
 import { SearchIcon } from "lucide-react";
 import ResetSearchButton from "./ResetSearchButton";
-const SearchForm = ({query}:{query?:string}) => {
+const SearchForm = ({query} : {query?:string}) => {
 
   return (
     <Form action="/" scroll={false} className="search-form">
@@ -17,7 +17,7 @@ const SearchForm = ({query}:{query?:string}) => {
       {query && <ResetSearchButton />}
 
       <button type="submit" className="search-btn">
-       <SearchIcon className="size-5"/>
+       <SearchIcon className="size-5 text-white"/>
       </button>
     </Form>
   );
