@@ -1,7 +1,8 @@
 import SearchForm from "@/components/SearchForm";
-import StartupCard, { StartupTypeCard  } from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
+import { auth } from "../auth";
 
 export default async function Home({
   searchParams,
@@ -9,11 +10,19 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
-  const params = {search: query || null};
+  const params = { search: query || null };
+
+  const session = await auth();
+
+  // Server-side logging in Next.js
+  if (session?.id) {
+    console.log("Session ID:", session.id);
+  } else {
+    console.log("No active session");
+  }
 
   //Fetching Data from sanity schema.
-  // const posts = await client.fetch(STARTUPS_QUERY);
-  const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params})
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <div>
@@ -45,8 +54,7 @@ export default async function Home({
         </ul>
       </section>
 
-
-      <SanityLive/>
+      <SanityLive />
     </div>
   );
 }
