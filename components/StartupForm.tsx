@@ -34,7 +34,7 @@ const StartupForm = () => {
       setErrors({});
       if (result.status === "SUCCESS") {
         toast.success("Form submitted successfully!");
-        router.push(`/startups/${result._id}`);
+        router.push(`/startup/${result._id}`);
       }
 
       return result;
@@ -70,7 +70,7 @@ const StartupForm = () => {
           <Input
             id="title"
             name="title"
-            className="startup_form_input"
+            className="startup-form_input"
             required
             placeholder="Startup Title"
           />
@@ -85,7 +85,7 @@ const StartupForm = () => {
           <Textarea
             id="description"
             name="description"
-            className="startup_form_description"
+            className="startup-form_textarea"
             required
             placeholder="Startup description"
           />
@@ -102,7 +102,7 @@ const StartupForm = () => {
           <Input
             id="category"
             name="category"
-            className="startup_form_input"
+            className="startup-form_input"
             required
             placeholder="Startup category (Tech, health, education, etc)"
           />
@@ -119,7 +119,7 @@ const StartupForm = () => {
           <Input
             id="image"
             name="image"
-            className="startup_form_input"
+            className="startup-form_input"
             required
             placeholder="Startup Image URL"
           />
@@ -137,7 +137,12 @@ const StartupForm = () => {
             id="pitch"
             preview="edit"
             height={300}
-            style={{ borderRadius: 20, overflow: "hidden" }}
+            className="startup-form_editor"
+            style={{
+              borderRadius: 20,
+              overflow: "hidden",
+              border: "3px solid black",
+            }}
             textareaProps={{
               placeholder:
                 "Briefly describe your idea and what problem it solves",

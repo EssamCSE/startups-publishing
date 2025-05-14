@@ -1,5 +1,8 @@
 import { client } from "@/sanity/lib/client";
-import { STARTUP_BY_ID_QUERY } from "@/sanity/lib/queries";
+import {
+  PLAYLIST_BY_SLUG_QUERY,
+  STARTUP_BY_ID_QUERY,
+} from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
@@ -7,6 +10,8 @@ import Image from "next/image";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+import View from "@/components/View";
 // import View from "@/components/View";
 
 const md = markdownit();
@@ -16,8 +21,13 @@ export const experimental_ppr = true;
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
 
-  const post = await client.fetch(STARTUP_BY_ID_QUERY, { id });
-
+  // Parallel  data  fetching
+  const [post, { select: editorPosts }] = await Promise.all([
+    client.fetch(STARTUP_BY_ID_QUERY, { id }),
+    client.fetch(PLAYLIST_BY_SLUG_QUERY, {
+      slug: "editor-picks",
+    }),
+  ]);
   if (!post) return notFound();
 
   const parseContent = md.render(post?.pitch || " ");
@@ -84,9 +94,20 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         <hr className="divider" />
 
-        {/* TODO:   Editor selected startups */}
+        {editorPosts?.length > 0 && (
+          <div className="max-w-4xl mx-auto px-4">
+            <p className="text-30-bold border-b border-black/10 pb-4">
+              Editor Picks
+            </p>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {editorPosts?.map((post: StartupTypeCard, i: number) => (
+                <StartupCard key={i} post={post} />
+              ))}
+            </ul>
+          </div>
+        )}
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
-          {/* <View id={id} /> */}
+          <View id={id} />
         </Suspense>
       </section>
     </>
