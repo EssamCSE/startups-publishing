@@ -16,7 +16,7 @@
     "@sanity/react-loader": "^1.11.8",
     "@sanity/types": "^3.87.1",
     "@sanity/vision": "^3.87.1",
-    "@sanity/visual-editing": "^2.13.20",
+    "@sanity/visual-editing": "^3.0.0",
     "@sentry/nextjs": "^9.18.0",
     "@uiw/react-md-editor": "^4.0.6",
     "class-variance-authority": "^0.7.1",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^3.0.0",
+    "@tailwindcss/postcss": "^3.4.1",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^20.11.30",
     "@types/react": "^19.0.0",
