@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Startup Publishing Platform
 
-## Getting Started
+A modern web application for publishing and discovering startup information, built with Next.js 15, Sanity CMS, and NextAuth for authentication.
 
-First, run the development server:
+## ✨ Features
+
+- 🔐 Secure authentication with NextAuth
+- 📝 Rich content management with Sanity CMS
+- 🎨 Modern UI with Tailwind CSS
+- 🌓 Dark/Light mode support
+- 🔍 Search functionality
+- 📱 Responsive design
+- 🚀 Startup profile creation and management
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework:** Next.js 15.3.1
+- **Content Management:** Sanity v3
+- **Authentication:** NextAuth v5
+- **Styling:**
+  - Tailwind CSS
+  - Radix UI Components
+  - Lucide React Icons
+- **Form Validation:** Zod
+- **Markdown Support:** Markdown-it
+- **Development Tools:**
+  - TypeScript
+  - ESLint
+  - Turbopack
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (Latest LTS version)
+- npm or yarn
+- Sanity account (for CMS)
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd startups-publishing
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Set up environment variables
+   Create a `.env` file with:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=your_sanity_dataset
+```
+
+4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── app/                   # Next.js app directory
+│   ├── (root)/           # Root layout and pages
+│   ├── api/              # API routes
+│   ├── auth/             # Authentication related files
+│   └── studio/           # Sanity Studio integration
+├── components/           # React components
+│   ├── ui/              # UI components (buttons, inputs, etc.)
+│   └── ...              # Other components
+├── lib/                  # Utility functions and shared logic
+├── public/              # Static assets
+├── sanity/              # Sanity configuration and schemas
+│   ├── schemas/         # Content type definitions
+│   └── lib/             # Sanity utility functions
+└── styles/              # Global styles and Tailwind config
+```
 
-## Learn More
+## 🔧 Configuration
 
-To learn more about Next.js, take a look at the following resources:
+- `next.config.ts` - Next.js configuration
+- `sanity.config.ts` - Sanity Studio configuration
+- `tailwind.config.js` - Tailwind CSS configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application can be easily deployed on Vercel:
 
-## Deploy on Vercel
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Configure environment variables
+4. Deploy!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
