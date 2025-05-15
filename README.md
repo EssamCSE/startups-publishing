@@ -6,8 +6,7 @@ A modern web application for publishing and discovering startup information, bui
 
 - 🔐 Secure authentication with NextAuth
 - 📝 Rich content management with Sanity CMS
-- 🎨 Modern UI with Tailwind CSS
-- 🌓 Dark/Light mode support
+- 🎨 Modern UI with Tailwind CS
 - 🔍 Search functionality
 - 📱 Responsive design
 - 🚀 Startup profile creation and management
