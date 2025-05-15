@@ -44,8 +44,8 @@ export const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src={author?.image! as string}
-            alt={author?.name as string}
+            src={author?.image || "/placeholder-avatar.png"}
+            alt={author?.name || "Author"}
             width={48}
             height={48}
             className="rounded-full"
@@ -55,7 +55,13 @@ export const StartupCard = ({ post }: { post: StartupTypeCard }) => {
 
       <Link href={`/startup/${_id}`}>
         <p className="startup-card-desc text-black">{description}</p>
-        <img src={image} alt="placeholder" className="startup-card_img" />
+        <Image
+          src={image || "/placeholder-startup.png"}
+          alt={title || "Startup image"}
+          width={800}
+          height={400}
+          className="startup-card_img"
+        />
       </Link>
 
       <div className="flex-between gap-3 mt-5">
