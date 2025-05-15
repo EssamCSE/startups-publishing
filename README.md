@@ -103,7 +103,7 @@ The application can be easily deployed on Vercel:
 
 ## 📝 License
 
-This project is licensed under the MIT License.
+Essam
 
 ## 🤝 Contributing
 
